@@ -24,9 +24,6 @@ def appened_data_file(number):
 def load_data_array():
     with open("data.txt") as f:
         numbers.append([int(x) for x in next(f).split()])
-
-    f = open("data.txt")
-    numbers.append(f)
     f.close()
 
 def display_data(data_array):
@@ -34,7 +31,6 @@ def display_data(data_array):
     pylab.show()
 
 def main():
-
     load_data_array()
     print(numbers)
 
