@@ -17,7 +17,7 @@ def get_user_input():
             break
     return user_input
 
-def appened_data_file(number):
+def append_data_file(number):
     with open('data.csv', 'a+',newline='') as f:
         writer = csv.writer(f)
         writer.writerow([number])
@@ -33,7 +33,17 @@ def display_data(data_array):
     pylab.show()
 
 def main():
-    
+    try:
+        load_array()
+    except OSError as e:
+        # file will not exist on first execution
+        pass
+
+    value = get_user_input()
+    append_data_file(value)
+    numbers.append(value)
+    # display the histogram
+    # display_data(numbers)
 
 if __name__ == "__main__":
     main()
