@@ -16,14 +16,15 @@ def get_user_input():
     return user_input
 
 def appened_data_file(number):
-    number_string = str(number)
+    number_string = str(number + ", ")
     f = open("data.txt","a+")
     f.write(number_string)
     f.close()
 
 def load_data_array():
     with open("data.txt") as f:
-        numbers.append([int(x) for x in next(f).split()])
+        file_data = [int(x) for x in next(f).split()]
+        numbers.extend(file_data)
     f.close()
 
 def display_data(data_array):
@@ -32,6 +33,7 @@ def display_data(data_array):
 
 def main():
     load_data_array()
+    numbers.append(10)
     print(numbers)
 
 if __name__ == "__main__":
