@@ -29,7 +29,11 @@ def load_array():
             numbers.extend(map(int,row))
 
 def display_data(data_array):
-    pylab.hist(data_array)
+    data_array.sort()
+    pylab.hist(data_array, bins = 10)
+    pylab.xlabel("User Input")
+    pylab.ylabel("test")
+    pylab.xticks(range(1,11))
     pylab.show()
 
 def main():
